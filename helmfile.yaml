@@ -1,0 +1,23 @@
+namespace: media
+
+releases:
+  - name: common
+    chart: charts/common
+
+  - name: radarr
+    chart: charts/radarr
+
+  - name: sonarr
+    chart: charts/sonarr
+
+  - name: bazarr
+    chart: charts/bazarr
+
+  - name: jackett
+    chart: charts/jackett
+
+  - name: deluge
+    chart: charts/deluge
+
+values:
+  - .env.{{ .Environment.Name }}.yaml
