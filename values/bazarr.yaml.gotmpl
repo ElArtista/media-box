@@ -5,3 +5,9 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+
+environment:
+  - name: PUID
+    value: {{ .Values.perm.uid | quote }}
+  - name: PGID
+    value: {{ .Values.perm.gid | quote }}
