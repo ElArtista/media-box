@@ -36,6 +36,16 @@ spec:
             - name: http
               containerPort: 6767
               protocol: TCP
+          volumeMounts:
+            - name: media
+              mountPath: /config
+              subPath: config/bazarr
+            - name: media
+              mountPath: /movies
+              subPath: movies
+            - name: media
+              mountPath: /series
+              subPath: series
           livenessProbe:
             httpGet:
               path: /
@@ -46,6 +56,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

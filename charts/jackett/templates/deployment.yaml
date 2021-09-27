@@ -36,6 +36,13 @@ spec:
             - name: http
               containerPort: 9117
               protocol: TCP
+          volumeMounts:
+            - name: media
+              mountPath: /config
+              subPath: config/jackett
+            - name: media
+              mountPath: /downloads
+              subPath: downloads/torrent-blackhole
           livenessProbe:
             httpGet:
               path: /
@@ -46,6 +53,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

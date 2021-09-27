@@ -36,6 +36,16 @@ spec:
             - name: http
               containerPort: 8989
               protocol: TCP
+          volumeMounts:
+            - name: media
+              mountPath: /config
+              subPath: config/sonarr
+            - name: media
+              mountPath: /series
+              subPath: series
+            - name: media
+              mountPath: /downloads
+              subPath: downloads
           livenessProbe:
             httpGet:
               path: /
@@ -46,6 +56,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
