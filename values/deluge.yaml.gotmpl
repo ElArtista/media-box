@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: deluge.{{ .Values.host }}
+      paths:
+        - path: /
+          pathType: ImplementationSpecific

@@ -3,21 +3,33 @@ namespace: media
 releases:
   - name: common
     chart: charts/common
+    values:
+      - values/common.yaml.gotmpl
 
   - name: radarr
     chart: charts/radarr
+    values:
+      - values/radarr.yaml.gotmpl
 
   - name: sonarr
     chart: charts/sonarr
+    values:
+      - values/sonarr.yaml.gotmpl
 
   - name: bazarr
     chart: charts/bazarr
+    values:
+      - values/bazarr.yaml.gotmpl
 
   - name: jackett
     chart: charts/jackett
+    values:
+      - values/jackett.yaml.gotmpl
 
   - name: deluge
     chart: charts/deluge
+    values:
+      - values/deluge.yaml.gotmpl
 
 values:
   - .env.{{ .Environment.Name }}.yaml
