@@ -1,0 +1,13 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: plex.{{ .Values.host }}
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+environment:
+  - name: PUID
+    value: {{ .Values.perm.uid | quote }}
+  - name: PGID
+    value: {{ .Values.perm.gid | quote }}

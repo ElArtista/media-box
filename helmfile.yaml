@@ -31,5 +31,10 @@ releases:
     values:
       - values/deluge.yaml.gotmpl
 
+  - name: plex
+    chart: charts/plex
+    values:
+      - values/plex.yaml.gotmpl
+
 values:
   - .env.{{ .Environment.Name }}.yaml
