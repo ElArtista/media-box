@@ -26,6 +26,11 @@ releases:
     values:
       - values/jackett.yaml.gotmpl
 
+  - name: flaresolverr
+    chart: charts/flaresolverr
+    values:
+      - values/flaresolverr.yaml.gotmpl
+
   - name: deluge
     chart: charts/deluge
     values:
