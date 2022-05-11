@@ -1,5 +1,6 @@
 ingress:
   enabled: true
+  className: "nginx"
   hosts:
     - host: flaresolverr.{{ .Values.host }}
       paths:

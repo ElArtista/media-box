@@ -1,5 +1,6 @@
 ingress:
   enabled: true
+  className: "nginx"
   hosts:
     - host: deluge.{{ .Values.host }}
       paths:

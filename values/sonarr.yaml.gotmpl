@@ -1,5 +1,6 @@
 ingress:
   enabled: true
+  className: "nginx"
   hosts:
     - host: sonarr.{{ .Values.host }}
       paths:
