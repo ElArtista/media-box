@@ -41,5 +41,10 @@ releases:
     values:
       - values/plex.yaml.gotmpl
 
+  - name: jellyfin
+    chart: charts/jellyfin
+    values:
+      - values/jellyfin.yaml.gotmpl
+
 values:
   - .env.{{ .Environment.Name }}.yaml
