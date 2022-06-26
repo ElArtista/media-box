@@ -30,8 +30,10 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  type: LoadBalancer
+  port: 32400
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "ingress"
 
 ingress:
   enabled: false
